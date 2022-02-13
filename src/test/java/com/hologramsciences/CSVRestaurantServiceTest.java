@@ -1,5 +1,7 @@
 package com.hologramsciences;
 
+import org.junit.Test;
+
 import java.io.IOException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -10,8 +12,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-
-import org.junit.Test;
 
 import static junit.framework.TestCase.assertTrue;
 
@@ -57,7 +57,7 @@ public class CSVRestaurantServiceTest {
     @Test
     public void getOpenRestaurantsForLocalDateTimeReturnsResults() {
         final List<Restaurant> lateNightResults = csvRestaurantService.getOpenRestaurantsForLocalDateTime(
-                        LocalDateTime.of(LocalDate.of(2020, 1, 15), LocalTime.MIDNIGHT)
+                LocalDateTime.of(LocalDate.of(2020, 1, 15), LocalTime.MIDNIGHT)
         );
 
         final List<String> lateNightRestaurantNames = lateNightResults.stream().map(Restaurant::getName).collect(Collectors.toList());
@@ -69,7 +69,7 @@ public class CSVRestaurantServiceTest {
     @Test
     public void getOpenRestaurantsForLocalDateTimeReturnsResultsReallyLate() {
         final List<Restaurant> lateNightResults = csvRestaurantService.getOpenRestaurantsForLocalDateTime(
-                        LocalDateTime.of(LocalDate.of(2020, 1, 15), LocalTime.of(2,0 ))
+                LocalDateTime.of(LocalDate.of(2020, 1, 15), LocalTime.of(2, 0))
         );
 
         final List<String> lightNightRestaurantNames = lateNightResults.stream().map(Restaurant::getName).collect(Collectors.toList());
@@ -79,13 +79,13 @@ public class CSVRestaurantServiceTest {
     }
 
 
-
-
     @Test
     public void allRestaurantsHaveGoodOpenHours() {
         assertTrue(
                 csvRestaurantService.getAllRestaurants().size() > 0 &&
-                        csvRestaurantService.getAllRestaurants().stream().allMatch(r -> r.getOpenHoursMap().size() > 0 && r.getOpenHoursMap().values().stream().allMatch(oh -> !oh.getStartTime().equals(oh.getEndTime())))
+                        csvRestaurantService.getAllRestaurants().stream().allMatch(r -> r.getOpenHoursMap().size() > 0
+                                && r.getOpenHoursMap().values().stream().allMatch(oh -> !oh.getStartTime().equals(oh.getEndTime()))
+                        )
         );
     }
 }
