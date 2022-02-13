@@ -5,7 +5,7 @@
 
 Fork this repository, and update the README.md link to Gitpod below to use your Github fork public link.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/EatWithAva/hologram-coding-project)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/phapli/hologram-coding-project)
 
 ### Overview of the coding assignment
 
