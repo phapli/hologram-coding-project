@@ -63,12 +63,14 @@ public class AlgorithmsTest {
 
     @Test
     public void testWaysToMakeChange200Cents() {
-        assertTrue(Algorithms.countNumWaysMakeChange(200) == 2728L);
+        assertEquals(2728L, Algorithms.countNumWaysMakeChange(200));
+        System.out.println(Algorithms.callCount);
     }
 
     @Test
     public void testWaysToMakeChange20000Cents() {
-        assertTrue(Algorithms.countNumWaysMakeChange(20000) == 4371565890901L);
+        assertEquals(4371565890901L, Algorithms.countNumWaysMakeChange(20000));
+        System.out.println(Algorithms.callCount);
     }
 }
 
